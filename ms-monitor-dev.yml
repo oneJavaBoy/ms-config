@@ -1,0 +1,23 @@
+server:
+  port: 8260
+
+spring:
+  boot:
+    admin:
+      turbine:
+        location: ms-monitor
+      routes:
+        endpoints: env,metrics,trace,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream,turbine.stream
+
+turbine:
+    app-config: ms-gateway #收集监控信息的服务名
+    combine-host-port: true
+    cluster-name-expression: new String('default') #集群名称
+
+notifier:
+  mobile:
+    enabled: true
+    mobiles:
+      - 17602176293
+  dingTalk:
+    enabled: true
